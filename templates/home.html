@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PYPL狼人杀*封神榜</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+        <script src="{% static "js/bootstrap-min.js" %}"></script>
+        <script src="{% static "js/jquery.min.js" %}"></script>
+    </head>
+    <body bgcolor="#99FFFF">
+         <table class="table table-striped table-condensed table-responsive">
+            <caption><h1>狼人杀积分榜</h1></caption>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>部门</th>
+                <th>分数</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for one in users %}
+                <tr>
+                    <td>{{ one.name}}</td>
+                    <td>{{one.dept}}</td>
+                    <td>{{ one.score}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <footer id="footer" class="top-space">
+            {% include 'tongji.html' %}
+        </footer>
+    </body>
+</html>
