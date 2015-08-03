@@ -7,7 +7,7 @@ class PlayerAdmin(admin.ModelAdmin):
     list_filter = ('dept', )
     date_hierarchy = 'createDate'
     ordering = ('-score', )
-    fields = ('name', 'dept', 'score') # removed createDate to protect being edit
+    fields = ('name', 'dept', 'score', 'createDate') # removed createDate to protect being edit
 
 # Register your models here.
 admin.site.register(Player, PlayerAdmin)
