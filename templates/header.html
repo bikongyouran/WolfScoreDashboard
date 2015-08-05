@@ -8,7 +8,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="admin">Admin Page</a></li>
+                {% if not in_admin_page %}
+                    <li class="active"><a href="admin">Admin Page</a></li>
+                    <li><a href="wechat">微信公众号</a></li>
+                {% else %}
+                    <li><a href="admin">Admin Page</a></li>
+                    <li class="active"><a href="wechat">微信公众号</a></li>
+                {% endif %}
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -15,3 +15,6 @@ def index(request):
     visitor.save()
     count = visitor.count
     return render_to_response('home.html', {'users': users, 'count': count})
+
+def wechat(request):
+    return render_to_response('wechat.html')

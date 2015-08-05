@@ -20,4 +20,5 @@ from WolfScoreDashboard import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'wolf.views.index', name='home'),
+    url(r'^wechat$', 'wolf.views.wechat'),
 ]

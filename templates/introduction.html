@@ -1,0 +1,49 @@
+<!-- container -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-sm-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">程序员的狼人杀</h1>
+            </header>
+            <h3>简介</h3>
+            {% load staticfiles %}
+            <p><img src="{% static "images/wolf.jpg" %}" alt="" class="img-rounded pull-right" width="300" > 如果一群人围在一起想玩狼人杀却发现没有带狼人杀的牌，是不是很蛋疼？那么就由我们这个小机器人将给你一个非常舒适的解决方式。 任何一个人通过命令创建一个房间，得到一个房间号，其他人输入房间号和自己的名字，就能获得自己的角色了。然后就可以愉快的游戏了。</p>
+            <p>关注方式：搜索公众号(moonlight_melody)或者扫描右侧二维码</p>
+            <h3>使用说明</h3>
+            <p>在大家都关注公众号后，上帝在公众号内用命令创建房间公众号返回房间号，其他玩家在自己的公众号输入房间号姓名获得分配的角色。</p>
+            <h3>常用命令</h3>
+            <p>创建房间命令：create 狼人 3 女巫 1 预言家 1 村民 4</p>
+            <p>进入房间命令：1449 小明</p>
+            <p>上帝查看角色命令：list</p>
+            <p>再来一局命令：restart</p>
+            <p>房间重启后获得新角色命令：role</p>
+            <h3>补充说明</h3>
+            <p>1,创建房间时，系统会默认加入一个上帝角色，所以玩家不用输入上帝了。其他玩家可以任意发挥。上帝也会任意分配。（如果有人一定要当上帝，可以和抽到上帝的人换角色）</p>
+            <p>2,第一次进入房间（以后只需输入房间号），请严格按照标准："房间号 名字"输入，房间号跟名字之间有空格，名字不能带空格。上帝查看游戏角色时，会显示这个名字。</p>
+            <p>3,再来一局命令，只有房间创建者和上帝可以使用;</p>
+            <br>
+            <br>
+            <br>
+            <br>
+        </article>
+        <!-- /Article -->
+
+        <!-- Sidebar -->
+        <aside class="col-sm-4 sidebar sidebar-right">
+
+            <div class="widget">
+                <h4>项目相关</h4>
+                <ul class="list-unstyled list-spaces">
+                    <li><a href="https://github.com/wuhaifengdhu/wolf">Github项目地址</a><br><span class="small text-muted">程序员的狼人杀微信公众号，是基于weixin-robot开发的一个替代狼人杀发牌过程的一个微信公众号。</span></li>
+                    <li><a href="https://github.com/node-webot/weixin-robot/wiki/%E4%BD%BF%E7%94%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%B8%90%E5%8F%B7">weixin-robot</a><br><span class="small text-muted">Weixin-robot是一套开发微信公众号的NodeJS框架，是webot和wechat-mp的高级包装，webot负责定义回复规则，wechat-mp负责与微信服务器通信。</span></li>
+                </ul>
+            </div>
+
+        </aside>
+        <!-- /Sidebar -->
+
+    </div>
+</div>	<!-- /container -->
