@@ -20,7 +20,7 @@ def au(request):
         Content = xml.find('Content').text + "  Hello world, this is test message"
         MsgId = xml.find('MsgId').text
         MsgType = "text"
-        return render_to_response("pypl/reply.html", locals())
+        return render_to_response("pypl/reply.xml", locals(), mimetype="application/xml")
 
 
 def checkSignature(request):
