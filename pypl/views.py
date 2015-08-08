@@ -1,5 +1,4 @@
 from django.shortcuts import HttpResponse, render_to_response
-from xml.etree import ElementTree as etree
 from django.utils.encoding import smart_str
 import hashlib
 
@@ -10,17 +9,10 @@ def au(request):
         response = HttpResponse(checkSignature(request))
         return response
     else:
-        xmlstr = smart_str(request.body)
-        xml = etree.fromstring(xmlstr)
-
-        ToUserName = xml.find('ToUserName').text
-        FromUserName = xml.find('FromUserName').text
-        CreateTime = xml.find('CreateTime').text
-        MsgType = xml.find('MsgType').text
-        Content = xml.find('Content').text + "  Hello world, this is test message"
-        MsgId = xml.find('MsgId').text
-        MsgType = "text"
-        return render_to_response("pypl/reply.xml", locals(), mimetype="application/xml")
+        xml_str = smart_str(request.body)
+        request_xml = etree.fromstring(xml_str)
+        response_xml = auto_reply_main(request_xml)# 修改这里
+        return HttpResponse(response_xml)
 
 
 def checkSignature(request):
