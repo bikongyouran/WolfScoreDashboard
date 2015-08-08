@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render_to_response
 from xml.etree import ElementTree as etree
 from django.utils.encoding import smart_str
 import hashlib
@@ -17,16 +17,10 @@ def au(request):
         FromUserName = xml.find('FromUserName').text
         CreateTime = xml.find('CreateTime').text
         MsgType = xml.find('MsgType').text
-        Content = xml.find('Content').text
+        Content = xml.find('Content').text + "  Hello world, this is test message"
         MsgId = xml.find('MsgId').text
-        reply_xml = """<xml>
-       <ToUserName><![CDATA[%s]]></ToUserName>
-       <FromUserName><![CDATA[%s]]></FromUserName>
-       <CreateTime>%s</CreateTime>
-       <MsgType><![CDATA[text]]></MsgType>
-       <Content><![CDATA[%s]]></Content>
-       </xml>"""%(FromUserName,ToUserName,CreateTime,Content + "  Hello world, this is test message")
-        return HttpResponse(reply_xml)
+        MsgType = "text"
+        return render_to_response("pypl/reply.html", locals())
 
 
 def checkSignature(request):
