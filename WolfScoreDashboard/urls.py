@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'wolf.views.index', name='home'),
     url(r'^wechat$', 'wolf.views.wechat'),
-    url(r'^pypl/', 'pypl.views.index'),
+    url(r'^pypl', 'pypl.views.index'),
 ]
