@@ -57,6 +57,8 @@ def index(request):
             )
         elif content.endswith('教程'):
             reply_text = '您要找的教程如下：'
+        else:
+            reply_text = 'hello'
 
         response = wechat_instance.response_text(content=reply_text)
 
