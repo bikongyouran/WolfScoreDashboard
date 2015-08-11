@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.http.response import HttpResponse, HttpResponseBadRequest
-
+import json
 from wechat_sdk import WechatBasic
 from wechat_sdk.exceptions import ParseError
 from wechat_sdk.messages import TextMessage
@@ -79,5 +79,8 @@ def index(request):
                     'url': u'http://www.lofter.com/',
                 }
             ])
+        elif content.endswith('头像'):
+            picUrl = json.loads(wechat_instance.get_user_info())['headimgurl']
+            wechat_instance.response_text(content=picUrl)
 
     return HttpResponse(response, content_type="application/xml")
