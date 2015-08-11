@@ -62,4 +62,22 @@ def index(request):
 
         response = wechat_instance.response_text(content=reply_text)
 
+        if content.endswith('图文'):
+            response = wechat_instance.response_news([
+                {
+                    'title': u'第一条新闻标题',
+                    'description': u'第一条新闻描述，这条新闻没有预览图',
+                    'url': u'http://www.diandian.com/',
+                }, {
+                    'title': u'第二条新闻标题, 这条新闻无描述',
+                    'picurl': u'http://img4.imgtn.bdimg.com/it/u=1726026486,642955954&fm=21&gp=0.jpg',
+                    'url': u'http://www.github.com/',
+                }, {
+                    'title': u'第三条新闻标题',
+                    'description': u'第三条新闻描述',
+                    'picurl': u'http://pic.nipic.com/2008-05-30/2008530143428224_2.jpg',
+                    'url': u'http://www.lofter.com/',
+                }
+            ])
+
     return HttpResponse(response, content_type="application/xml")
