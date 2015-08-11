@@ -81,6 +81,6 @@ def index(request):
             ])
         elif content.endswith('头像'):
             picUrl = json.loads(wechat_instance.get_user_info())['headimgurl']
-            wechat_instance.response_text(content=picUrl)
+            response = wechat_instance.response_text(content=picUrl)
 
     return HttpResponse(response, content_type="application/xml")
