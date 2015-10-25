@@ -41,8 +41,8 @@ def index(request):
     # 关注事件以及不匹配时的默认回复
     response = wechat_instance.response_text(
         content = (
-            '感谢您的关注！\n回复【功能】两个字查看支持的功能，还可以回复任意内容开始聊天'
-            '\n【<a href="http://www.ziqiangxuetang.com">自强学堂手机版</a>】'
+            '感谢您的关注！\n这个账号不是官方账号。回复【图文】两个字，返回图文消息'
+            '\n\t\t Wu Devin\n(haifwu@paypal.com)'
         ))
     if isinstance(message, TextMessage):
         # 当前会话内容
@@ -53,7 +53,6 @@ def index(request):
                 '比如回复 "Django 后台教程"\n'
                 '2. 回复任意词语，查天气，陪聊天，讲故事，无所不能！\n'
                 '还有更多功能正在开发中哦 ^_^\n'
-                '【<a href="http://www.ziqiangxuetang.com">自强学堂手机版</a>】'
             )
         elif content.endswith('教程'):
             reply_text = '您要找的教程如下：'
@@ -66,21 +65,21 @@ def index(request):
             response = wechat_instance.response_news([
                 {
                     'title': u'第一条新闻标题',
-                    'description': u'第一条新闻描述，这条新闻没有预览图',
+                    'description': u'还可以回复教程、功能',
                     'url': u'http://www.diandian.com/',
-                }, {
+                    }, {
                     'title': u'第二条新闻标题, 这条新闻无描述',
                     'picurl': u'http://img4.imgtn.bdimg.com/it/u=1726026486,642955954&fm=21&gp=0.jpg',
                     'url': u'http://www.github.com/',
-                }, {
+                    }, {
                     'title': u'第三条新闻标题',
                     'description': u'第三条新闻描述',
                     'picurl': u'http://pic.nipic.com/2008-05-30/2008530143428224_2.jpg',
                     'url': u'http://www.lofter.com/',
-                }
+                    }
             ])
         elif content.endswith('头像'):
-            picUrl = json.loads(wechat_instance.get_user_info(user_id=wechat_instance.message['source']))['headimgurl']
+            picUrl = wechat_instance.message
             response = wechat_instance.response_text(content=picUrl)
 
     return HttpResponse(response, content_type="application/xml")

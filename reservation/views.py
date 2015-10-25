@@ -13,7 +13,9 @@ def login(request):
         print "phone_number_request=" + phone_number_request
         if name_request and phone_number_request:
             candidate = Candidate.objects.filter(name=name_request, phoneNumber=phone_number_request)
+
             if candidate.count() == 1:
+                print candidate[0].name + ":" + candidate[0].phoneNumber
                 request.session["name"] = candidate[0].name
                 request.session["phoneNumber"] = candidate[0].phoneNumber
                 return HttpResponseRedirect("/reservation/reservation")
@@ -22,7 +24,7 @@ def login(request):
 
 
 def reservation(request):
-    if 'name' in request.session and 'workType' in request.session:
+    if 'name' in request.session and 'phoneNumber' in request.session:
         name_request = request.session['name']
         phone_number_request = request.session['phoneNumber']
         print "get " + name_request + " from session!"
@@ -51,7 +53,7 @@ def reservation(request):
 
 
 def success(request):
-    if 'name' in request.session and 'workType' in request.session:
+    if 'name' in request.session and 'phoneNumber' in request.session:
         name_request = request.session['name']
         phone_number_request = request.session['phoneNumber']
         candidate = Candidate.objects.filter(name=name_request, phoneNumber=phone_number_request)[0]
