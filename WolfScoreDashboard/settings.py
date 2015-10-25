@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'wolf',
     'pypl',
+    'reservation',
 ]
 
 MIDDLEWARE_CLASSES = [

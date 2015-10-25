@@ -22,4 +22,9 @@ urlpatterns = [
     url(r'^$', 'wolf.views.index', name='home'),
     url(r'^wechat$', 'wolf.views.wechat'),
     url(r'^pypl', 'pypl.views.index'),
+    url(r'^reservation/login', 'reservation.views.login'),
+    url(r'^reservation/reservation', 'reservation.views.reservation'),
+    url(r'^reservation/result', 'reservation.views.success'),
+    url(r'^display_meta$', 'reservation.views.display_meta'),
+    url(r'404', 'reservation.views.no_page_found'),
 ]

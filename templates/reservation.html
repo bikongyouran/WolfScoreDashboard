@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>预约主页</title>
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    {% load staticfiles %}
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    <script language="javascript">
+        $(function(){
+            $(":radio[name='time_area']").click(function(){
+                var time_area_selected_value = $('input[name="time_area"]:checked').val();
+                $("#time_area_reshow").html("您预约的时间段为" + time_area_selected_value);
+                $("#time_area_selected").val(time_area_selected_value);
+            });
+        });
+    </script>
+</head>
+
+<body>
+<section>
+    <div>
+        <p>您投递的是{{ candidate.workType }}岗位！</p>
+    </div>
+    <div>
+        <p>请在如下时间段中选择一个你方便的时间！</p>
+        <p>（一旦确认了就不可以修改，请看仔细！)</p>
+        <form>
+            {% for time_area in time_areas %}
+                {% ifnotequal time_area.available 0 %}
+                   <p><input type="radio" name="time_area", value="{{ time_area.description }}">
+                       {{ time_area.description }}
+                   </p>
+                {% else %}
+                   <p>{{ time_area.description }} 已满</p>
+                {% endifnotequal %}
+            {% endfor %}
+        </form>
+    </div>
+    <div>
+        <p id="time_area_reshow"></p>
+        <form method="post" action="">
+            <p><input type="text" id="time_area_selected" name="time_area_selected" value="" style="display:none;"/></p>
+            <p class="submit"><input type="submit" name="confirm" value="确认"></p>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>
