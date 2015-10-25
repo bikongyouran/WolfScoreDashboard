@@ -1,10 +1,11 @@
 #coding: utf-8
 from django.shortcuts import render_to_response, HttpResponse
 from django.http import HttpResponseRedirect
-
+import sys
 from models import Candidate, TimeArea
 
-
+reload(sys)
+sys.setdefaultencoding('utf8')
 def login(request):
     if 'name' in request.GET and 'phoneNumber' in request.GET:
         name_request = request.GET['name']
