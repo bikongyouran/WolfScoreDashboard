@@ -1,6 +1,8 @@
 #coding: utf-8
 from django.shortcuts import render_to_response, HttpResponse
 from django.http import HttpResponseRedirect
+from django.core.mail import EmailMultiAlternatives
+from django.template import Context, loader
 import sys
 from models import Candidate, TimeArea
 
@@ -59,6 +61,8 @@ def success(request):
         phone_number_request = request.session['phoneNumber']
         candidate = Candidate.objects.filter(name=name_request, phoneNumber=phone_number_request)[0]
         if candidate.timeArea:
+            mail_list = [candidate.email_address]
+            send_result(mail_list, 'email.html', locals())
             return render_to_response('success.html', locals())
         else:
             return HttpResponseRedirect("/reservation/reservation")
@@ -75,3 +79,22 @@ def display_meta(request):
 
 def no_page_found(request):
     return render_to_response('404.html', locals())
+
+
+def send_result(mail_list, email_template_name, context):
+    subject, from_email, to = "PayPal公司面试预约结果", "paypalshanghai@163.com", mail_list
+    t = loader.get_template(email_template_name)
+    html_content = t.render(Context(context))
+    msg = EmailMultiAlternatives(subject, html_content, from_email, to)
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
+
+
+
+
+
+
+
+
+
+

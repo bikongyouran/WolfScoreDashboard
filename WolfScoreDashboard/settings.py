@@ -54,6 +54,11 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'WolfScoreDashboard.urls'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER='paypalshanghai@163.com'
+EMAIL_HOST_PASSWORD='yjyfcrbkermqslwt'
 
 TEMPLATES = [
     {

@@ -8,6 +8,7 @@ class Candidate(models.Model):
     phoneNumber = models.CharField(max_length=20)
     workType = models.CharField(max_length=20)
     timeArea = models.CharField(max_length=20, blank=True)
+    email_address = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.name + self.phoneNumber
