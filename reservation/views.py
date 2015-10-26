@@ -61,7 +61,7 @@ def success(request):
         phone_number_request = request.session['phoneNumber']
         candidate = Candidate.objects.filter(name=name_request, phoneNumber=phone_number_request)[0]
         if candidate.timeArea:
-            mail_list = [candidate.email_address]
+            mail_list = [candidate.email_address if candidate.email_address else "haifwu@paypal.com"]
             send_result(mail_list, 'email.html', locals())
             return render_to_response('success.html', locals())
         else:
@@ -84,7 +84,7 @@ def no_page_found(request):
 def send_result(mail_list, email_template_name, context):
     subject, from_email, to = "PayPal公司面试预约结果", "paypalshanghai@163.com", mail_list
     t = loader.get_template(email_template_name)
-    html_content = t.render(Context(context))
+    html_content = t.render(context)
     msg = EmailMultiAlternatives(subject, html_content, from_email, to)
     msg.attach_alternative(html_content, "text/html")
     msg.send()
