@@ -25,7 +25,8 @@
 {% include 'paypalhead.html' %}
 <section>
     <div>
-        <p>您投递的是{{ candidate.workType }}岗位！</p>
+        <p style="color:red;font-size:20px;">您投递的是{{ candidate.workType }}岗位！</p>
+        <div style="height: 27px;"></div>
     </div>
     <div>
         <p>请在如下时间段中选择一个你方便的时间！</p>
@@ -37,7 +38,7 @@
                        {{ time_area.description }}
                    </p>
                 {% else %}
-                   <p>{{ time_area.description }} 已满</p>
+                   <p>已满{{ time_area.description }}</p>
                 {% endifnotequal %}
             {% endfor %}
         </form>
