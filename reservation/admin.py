@@ -2,11 +2,11 @@ from django.contrib import admin
 from models import Candidate, TimeArea
 
 class CandidateAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phoneNumber', 'workType', 'timeArea')
+    list_display = ('name', 'phoneNumber', 'workType', 'timeArea', 'email_address')
     search_fields = ('name', 'phoneNumber')
     list_filter = ('workType',)
     ordering = ('workType', 'timeArea')
-    fields = ('name', 'phoneNumber', 'workType', 'timeArea')
+    fields = ('name', 'phoneNumber', 'workType', 'timeArea', 'email_address')
 
 class TimeAreaAdmin(admin.ModelAdmin):
     list_display = ('workType', 'description', 'available')
