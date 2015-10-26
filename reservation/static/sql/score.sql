@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: score
 Target Host: localhost
 Target Database: score
-Date: 2015/10/25 23:13:11
+Date: 2015/10/26 13:04:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -140,7 +140,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for django_session
@@ -164,6 +164,7 @@ CREATE TABLE `reservation_candidate` (
   `phoneNumber` varchar(20) NOT NULL,
   `workType` varchar(20) NOT NULL,
   `timeArea` varchar(20) DEFAULT NULL,
+  `email_address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -304,7 +305,7 @@ INSERT INTO `django_migrations` VALUES ('15', 'wolf', '0004_auto_20150802_1215',
 INSERT INTO `django_migrations` VALUES ('16', 'wolf', '0005_auto_20150802_1221', '2015-08-02 04:21:12');
 INSERT INTO `django_migrations` VALUES ('17', 'wolf', '0006_player_test', '2015-09-11 08:45:04');
 INSERT INTO `django_migrations` VALUES ('18', 'reservation', '0001_initial', '2015-10-24 03:41:42');
-INSERT INTO `django_migrations` VALUES ('19', 'reservation', '0002_auto_20151024_1151', '2015-10-24 03:51:26');
+INSERT INTO `django_migrations` VALUES ('20', 'reservation', '0002_candidate_email_address', '2015-10-26 05:01:07');
 INSERT INTO `django_session` VALUES ('37tv0l3ald6sh3pfva9qv5rrt8vqw1vi', 'YjI0ZGIyNTYzMTA1YTNiNDg5ODBiOGY2NjcxNjM0ZjVlM2FhM2IyZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1ODA2YmZlMmE5ZThiZDM1ZTQ3NjRkMzA2NmI3NzQ5YjVlMDM4MTciLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-08-18 10:07:06');
 INSERT INTO `django_session` VALUES ('6sgzvzomxczqo1rrvy0y0tp62e7nguko', 'YjI0ZGIyNTYzMTA1YTNiNDg5ODBiOGY2NjcxNjM0ZjVlM2FhM2IyZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1ODA2YmZlMmE5ZThiZDM1ZTQ3NjRkMzA2NmI3NzQ5YjVlMDM4MTciLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-09-25 08:47:20');
 INSERT INTO `django_session` VALUES ('dagj7vmqnsx1qh60y4jg6ro7qw1lipl1', 'MGRkMGQ4M2FhMTVhNThmZjE2MjMwODY4ZjNjOTAyMGUxY2I5Mzg5OTp7InBob25lTnVtYmVyIjoiMTg4MTczMzQwNjMiLCJuYW1lIjoiXHU1NDM0XHU2ZDc3XHU1Y2YwIiwid29ya1R5cGUiOjF9', '2015-11-08 08:52:13');
@@ -313,15 +314,16 @@ INSERT INTO `django_session` VALUES ('m0e3ezsqnfs1kfjb97g6a5afqvdked44', 'YjI0ZG
 INSERT INTO `django_session` VALUES ('r0sznyuzsv2c8qz53ew2u7aw9an0bu5p', 'OGQyMWY4MjU4ODhiOTE2Zjg2NjJjZjZiOTgzYmRlMGRhNGNlYjUxZjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1ODA2YmZlMmE5ZThiZDM1ZTQ3NjRkMzA2NmI3NzQ5YjVlMDM4MTciLCJwaG9uZU51bWJlciI6IjE4ODE3MzM0MDYwIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIm5hbWUiOiJcdTU0MzRcdTViOWRcdTU5YWUifQ==', '2015-11-08 14:22:49');
 INSERT INTO `django_session` VALUES ('tqpzboizec0vvq937g91x8979genlr9b', 'YjI0ZGIyNTYzMTA1YTNiNDg5ODBiOGY2NjcxNjM0ZjVlM2FhM2IyZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1ODA2YmZlMmE5ZThiZDM1ZTQ3NjRkMzA2NmI3NzQ5YjVlMDM4MTciLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-08-14 10:22:00');
 INSERT INTO `django_session` VALUES ('ylu2amhswiihe29dweuq0wh4vb6vuvb3', 'YjI0ZGIyNTYzMTA1YTNiNDg5ODBiOGY2NjcxNjM0ZjVlM2FhM2IyZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1ODA2YmZlMmE5ZThiZDM1ZTQ3NjRkMzA2NmI3NzQ5YjVlMDM4MTciLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-11-04 06:11:17');
-INSERT INTO `reservation_candidate` VALUES ('1', '吴海峰', '18817334063', '风险分析师', '10:40 - 12:10');
-INSERT INTO `reservation_candidate` VALUES ('2', '吴宝妮', '18817334060', '风险工程师', '09:00 - 10:30');
-INSERT INTO `reservation_candidate` VALUES ('3', '张三', '18817334061', '风险分析师', '');
+INSERT INTO `django_session` VALUES ('zsl58o9dn3uok5frlnje4boyz171nnn3', 'Nzg1ZDQwNTBmYTYzNDk1YTAwZDIzNzA0NzA1M2ZmOTBhZmIzMTNhMjp7InBob25lTnVtYmVyIjoiMTg4MTczMzQwNjMiLCJuYW1lIjoiXHU1NDM0XHU2ZDc3XHU1Y2YwIn0=', '2015-11-09 05:02:55');
+INSERT INTO `reservation_candidate` VALUES ('1', '吴海峰', '18817334063', '风险分析师', '10:40 - 12:10', 'wuhaifengdhu@163.com');
+INSERT INTO `reservation_candidate` VALUES ('2', '吴宝妮', '18817334060', '风险工程师', '09:00 - 10:30', 'wuhaifengdhu@163.com');
+INSERT INTO `reservation_candidate` VALUES ('3', '张三', '18817334061', '风险工程师', '10:40 - 12:10', 'wuhaifengdhu@163.com');
 INSERT INTO `reservation_timearea` VALUES ('1', '风险分析师', '7', '09:00 - 10:30');
 INSERT INTO `reservation_timearea` VALUES ('2', '风险分析师', '5', '10:40 - 12:10');
 INSERT INTO `reservation_timearea` VALUES ('3', '风险分析师', '7', '13:00 - 14:30');
 INSERT INTO `reservation_timearea` VALUES ('4', '风险分析师', '7', '14:40 - 16:10');
 INSERT INTO `reservation_timearea` VALUES ('5', '风险工程师', '7', '09:00 - 10:30');
-INSERT INTO `reservation_timearea` VALUES ('6', '风险工程师', '3', '10:40 - 12:10');
+INSERT INTO `reservation_timearea` VALUES ('6', '风险工程师', '2', '10:40 - 12:10');
 INSERT INTO `reservation_timearea` VALUES ('7', '风险工程师', '0', '13:00 - 14:30');
 INSERT INTO `reservation_timearea` VALUES ('8', '风险工程师', '8', '14:40 - 16:10');
 INSERT INTO `reservation_timearea` VALUES ('12', '风险工程师', '8', '16:20 - 17:50');
@@ -344,4 +346,4 @@ INSERT INTO `wolf_player` VALUES ('11', 'manni', 'gsc', '34', '2015-08-01');
 INSERT INTO `wolf_player` VALUES ('12', 'meijia', 'pd', '5', '2015-08-01');
 INSERT INTO `wolf_player` VALUES ('13', 'wu devin', 'dept', '30', '2015-08-01');
 INSERT INTO `wolf_player` VALUES ('14', 'Wu', 'pd', '3434', '2015-09-16');
-INSERT INTO `wolf_visitor` VALUES ('1', 'visitor num', '140');
+INSERT INTO `wolf_visitor` VALUES ('1', 'visitor num', '142');
