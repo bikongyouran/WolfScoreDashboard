@@ -2,3 +2,5 @@
 *.iml
 start.bat
 *.pyc
+*.pyc
+nohup.out
