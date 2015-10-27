@@ -14,7 +14,7 @@
         $(function(){
             $(":radio[name='time_area']").click(function(){
                 var time_area_selected_value = $('input[name="time_area"]:checked').val();
-                $("#time_area_reshow").html("您预约的时间段为" + time_area_selected_value);
+                $("#time_area_reshow").html('您预约的面试时间为<span style="font-weight: bold; color: red">11月7日' + time_area_selected_value + '</span>');
                 $("#time_area_selected").val(time_area_selected_value);
             });
         });
@@ -25,12 +25,12 @@
 {% include 'paypalhead.html' %}
 <section>
     <div>
-        <p style="color:red;font-size:20px;">您投递的是{{ candidate.workType }}岗位！</p>
+        <p style="font-weight: bold;color:red;font-size:20px;">您投递的是{{ candidate.workType }}岗位！</p>
         <div style="height: 27px;"></div>
     </div>
     <div>
-        <p>请在如下时间段中选择一个你方便的时间！</p>
-        <p>（一旦确认了就不可以修改，请看仔细！)</p>
+        <p>我们公司定于<span style="font-weight: bold; color: blue">11月7日</span>面试，请在如下时间段中选择一个你方便的时间！</p>
+        <p style="color: red">（一旦确认了就不可以修改，请看仔细！)</p>
         <form>
             {% for time_area in time_areas %}
                 {% ifnotequal time_area.available 0 %}
