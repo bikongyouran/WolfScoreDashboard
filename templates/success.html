@@ -8,17 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>预约结果</title>
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style type="text/css">
+        p{font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+    </style>
 </head>
 <body>
 {% include 'paypalhead.html' %}
 <section class="information">
-    <p style="color:red;font-size:20px;">选择成功！</p>
+    <p style="color:#FF8F1C;font-size:20px;">选择成功！</p>
     <div style="height: 17px;"></div>
-    <p>你选择了<span style="font-weight: bold; color: blue">11月7日{{candidate.timeArea }}</span>的面试时间。</p>
+    <p>你选择了<span style="font-weight: bold; color: #009CDE">11月7日{{candidate.timeArea }}</span>的面试时间。</p>
     <p>请提前10分钟到达面试地点。</p>
 </section>
 <section class="picture">
-    <p>我们的办公地点位于：<span style="font-weight: bold; color: #000000">上海市东方路1217号，陆家嘴金融服务广场18楼</span></p>
+    <p>我们的办公地点位于：<span style="font-weight: bold; color: #003087">上海市东方路1217号，陆家嘴金融服务广场18楼</span></p>
     {% load staticfiles %}
     <img src="{% static "images/map.png" %}">
 </section>
