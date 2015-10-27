@@ -38,6 +38,11 @@ def reservation(request):
 
         if 'time_area_selected' in request.POST:
             print "time_area_selected=" + request.POST["time_area_selected"]
+            if request.POST["time_area_selected"] == "" or request.POST["time_area_selected"] is None:
+                time_areas = TimeArea.objects.filter(workType=candidate.workType)
+                error = True
+                return render_to_response('reservation.html', locals())
+
             time_area = TimeArea.objects.filter(workType=candidate.workType, description=request.POST["time_area_selected"])[0]
             print "time area available = " + str(time_area.available)
             if time_area.available >= 1:

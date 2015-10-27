@@ -10,6 +10,46 @@
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <style type="text/css">
         p{font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+        .button {
+            display: inline-block;
+            position: relative;
+            padding: 0 20px;
+            text-align: center;
+            text-decoration: none;
+            font: bold 12px/25px Arial, sans-serif;
+            text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            -webkit-transition: all 0.15s ease;
+            -moz-transition: all 0.15s ease;
+            -o-transition: all 0.15s ease;
+            -ms-transition: all 0.15s ease;
+            transition: all 0.15s ease;
+        }
+        .blue {
+            color: #FFFFFF;
+            background: #009CDE; /* Old browsers */
+            background: -moz-linear-gradient(top,  #70c9e3 0%, #39a0be 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#70c9e3), color-stop(100%,#39a0be)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* IE10+ */
+            background: linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* W3C */
+        }
+        .button:hover {
+            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+            -moz-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+            box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+        }
+        .button:active {
+            -webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+            -moz-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+            box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+        }
     </style>
     {% load staticfiles %}
     <script src="{% static "js/jquery.min.js" %}"></script>
@@ -47,10 +87,14 @@
         </form>
     </div>
     <div>
-        <p id="time_area_reshow"></p>
+        {% if error %}
+            <p id="time_area_reshow" style="color: #FF8F1C">请选择一个时间段！</p>
+        {% else %}
+            <p id="time_area_reshow"></p>
+        {% endif %}
         <form method="post" action="">
             <p><input type="text" id="time_area_selected" name="time_area_selected" value="" style="display:none;"/></p>
-            <p class="submit"><input type="submit" name="confirm" value="确认"></p>
+            <p class="submit"><input type="submit" name="confirm" class="button blue" value="确认"></p>
         </form>
     </div>
 </section>
