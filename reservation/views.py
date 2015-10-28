@@ -87,7 +87,7 @@ def no_page_found(request):
 
 
 def send_result(mail_list, email_template_name, context):
-    subject, from_email, to = "PayPal校园招聘面试时间预约结果", "paypalshanghai@163.com", mail_list
+    subject, from_email, to = "PayPal校园招聘面试时间预约结果", "cnCampus@paypal.com", mail_list
     t = loader.get_template(email_template_name)
     html_content = t.render(context)
     msg = EmailMultiAlternatives(subject, html_content, from_email, to)
