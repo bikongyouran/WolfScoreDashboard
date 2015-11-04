@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: score
 Target Host: localhost
 Target Database: score
-Date: 2015/10/25 17:07:07
+Date: 2015/11/4 11:16:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,12 +23,15 @@ CREATE TABLE `reservation_timearea` (
 -- ----------------------------
 -- Records 
 -- ----------------------------
-INSERT INTO `reservation_timearea` VALUES ('1', '风险分析师', '8', '09:00 - 10:30');
-INSERT INTO `reservation_timearea` VALUES ('2', '风险分析师', '8', '10:40 - 12:10');
-INSERT INTO `reservation_timearea` VALUES ('3', '风险分析师', '8', '13:00 - 14:30');
-INSERT INTO `reservation_timearea` VALUES ('4', '风险分析师', '7', '14:40 - 16:10');
-INSERT INTO `reservation_timearea` VALUES ('5', '风险工程师', '8', '09:00 - 10:30');
-INSERT INTO `reservation_timearea` VALUES ('6', '风险工程师', '6', '10:40 - 12:10');
-INSERT INTO `reservation_timearea` VALUES ('7', '风险工程师', '0', '13:00 - 14:30');
-INSERT INTO `reservation_timearea` VALUES ('8', '风险工程师', '8', '14:40 - 16:10');
-INSERT INTO `reservation_timearea` VALUES ('12', '风险工程师', '8', '16:20 - 17:50');
+INSERT INTO `reservation_timearea` VALUES ('1', '风险分析师', '3', '10:00开始');
+INSERT INTO `reservation_timearea` VALUES ('2', '风险分析师', '3', '11:00开始');
+INSERT INTO `reservation_timearea` VALUES ('3', '风险分析师', '3', '13:00开始');
+INSERT INTO `reservation_timearea` VALUES ('4', '风险分析师', '3', '14:00开始');
+INSERT INTO `reservation_timearea` VALUES ('5', '风险分析师', '3', '15:00开始');
+INSERT INTO `reservation_timearea` VALUES ('6', '风险分析师', '3', '16:00开始');
+INSERT INTO `reservation_timearea` VALUES ('7', '风险工程师', '6', '13:00开始');
+INSERT INTO `reservation_timearea` VALUES ('8', '风险工程师', '5', '14:00开始');
+INSERT INTO `reservation_timearea` VALUES ('9', '风险工程师', '6', '13:00开始');
+INSERT INTO `reservation_timearea` VALUES ('10', '风险工程师', '6', '14:00开始');
+INSERT INTO `reservation_timearea` VALUES ('11', '风险工程师', '6', '15:00开始');
+INSERT INTO `reservation_timearea` VALUES ('12', '风险工程师', '6', '16:00开始');
