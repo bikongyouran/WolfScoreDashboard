@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: score
 Target Host: localhost
 Target Database: score
-Date: 2015/11/4 11:16:49
+Date: 2015/11/4 15:50:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,4 +70,8 @@ INSERT INTO `reservation_candidate` VALUES ('42', '王晓东', '18521561589', '�
 INSERT INTO `reservation_candidate` VALUES ('43', '杨振崧', '15650760654', '风险工程师', null, 'yzs418@126.com');
 INSERT INTO `reservation_candidate` VALUES ('44', '李佳龙', '13917187772', '风险工程师', null, 'li_jia_long_1990@163.com');
 INSERT INTO `reservation_candidate` VALUES ('45', '朱维', '15921504759', '风险工程师', null, 'minizhuwei@gmail.com');
-INSERT INTO `reservation_candidate` VALUES ('46', '吴海峰', '18817334063', '风险工程师', '14:00开始', 'wuhaifengdhu@163.com');
+INSERT INTO `reservation_candidate` VALUES ('46', '吴海峰', '18817334063', '风险工程师', null, 'wuhaifengdhu@163.com');
+INSERT INTO `reservation_candidate` VALUES ('47', '阿茹娜', '15216712340', '风险分析师', null, 'aruna_0828@163.com');
+INSERT INTO `reservation_candidate` VALUES ('48', '郑泽华', '15121197350', '风险分析师', null, 'sjtu90@163.com');
+INSERT INTO `reservation_candidate` VALUES ('49', '杨恺希', '13611869314', '风险工程师', null, 'yangkaixi@fudan.edu.cn');
+INSERT INTO `reservation_candidate` VALUES ('50', '赵耀', '15021128363', '风险工程师', null, 'tigerzhaoyao416@126.com');
