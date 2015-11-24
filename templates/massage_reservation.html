@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reservation Page</title>
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style type="text/css">
+        p{font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+        .button {
+            display: inline-block;
+            position: relative;
+            padding: 0 20px;
+            text-align: center;
+            text-decoration: none;
+            font: bold 12px/25px Arial, sans-serif;
+            text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+            -webkit-transition: all 0.15s ease;
+            -moz-transition: all 0.15s ease;
+            -o-transition: all 0.15s ease;
+            -ms-transition: all 0.15s ease;
+            transition: all 0.15s ease;
+        }
+        .blue {
+            color: #FFFFFF;
+            background: #009CDE; /* Old browsers */
+            background: -moz-linear-gradient(top,  #70c9e3 0%, #39a0be 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#70c9e3), color-stop(100%,#39a0be)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* IE10+ */
+            background: linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* W3C */
+        }
+        .button:hover {
+            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+            -moz-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+            box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+        }
+        .button:active {
+            -webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+            -moz-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+            box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+        }
+    </style>
+    {% load staticfiles %}
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    <script language="javascript">
+        $(function(){
+            $(":radio[name='time_area']").click(function(){
+                var time_area_selected_value = $('input[name="time_area"]:checked').val();
+                $("#time_area_reshow").html('You want to reservate time area <span style="font-weight: bold; color: #FF8F1C">' + time_area_selected_value + '</span>');
+                $("#time_area_selected").val(time_area_selected_value);
+            });
+        });
+    </script>
+</head>
+
+<body>
+{% include 'massage_head.html' %}
+<section>
+    <div>
+        <p>Our company will invite two massage masters to our company, and will provide free service to our employees. As limited to the service time, we will give the opportunity to the one who comes first.</p>
+        <p>Please choose one of following period below when you will be free！</p>
+        <form>
+            {% for time_area in time_areas %}
+                {% ifnotequal time_area.available 0 %}
+                   <p><input type="radio" name="time_area", value="{{ time_area.timeArea }}">
+                       {{ time_area.timeArea }}
+                   </p>
+                {% else %}
+                   <p style="color: #BFBFBF">FULL{{ time_area.timeArea }}</p>
+                {% endifnotequal %}
+            {% endfor %}
+        </form>
+    </div>
+    <div>
+        {% if error %}
+            <p id="time_area_reshow" style="color: #FF8F1C">Please choose one available area！</p>
+        {% else %}
+            <p id="time_area_reshow"></p>
+        {% endif %}
+        <form method="post" action="">
+            <p><input type="text" id="time_area_selected" name="time_area_selected" value="" style="display:none;"/></p>
+            <p class="submit"><input type="submit" name="confirm" class="button blue" value="Submit"></p>
+        </form>
+    </div>
+</section>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reservation Result</title>
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style type="text/css">
+        p{font-family: '微软雅黑', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+    </style>
+</head>
+<body>
+{% include 'massage_head.html' %}
+<section class="information">
+    <p style="color:#FF8F1C;font-size:20px;">Success！</p>
+    <div style="height: 17px;"></div>
+    <p>You choose time area <span style="font-weight: bold; color: #009CDE">{{colleague.timeArea }}</span> to enjoy the service!</p>
+    <p>Please come to {{ colleague.place }} 5 minutes early before that area.</p>
+    {% load staticfiles %}
+    <img src="{% static "images/massage.jpg" %}">
+</section>
+</body>
+
+</html>

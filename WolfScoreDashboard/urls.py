@@ -25,6 +25,9 @@ urlpatterns = [
     url(r'^reservation/login', 'reservation.views.login'),
     url(r'^reservation/reservation', 'reservation.views.reservation'),
     url(r'^reservation/result', 'reservation.views.success'),
+    url(r'^massage/login', 'massage.views.login'),
+    url(r'^massage/reservation', 'massage.views.reservation'),
+    url(r'^massage/result', 'massage.views.success'),
     url(r'^display_meta$', 'reservation.views.display_meta'),
     url(r'404', 'reservation.views.no_page_found'),
 ]
