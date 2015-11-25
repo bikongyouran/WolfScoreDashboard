@@ -15,12 +15,11 @@
 <body>
 {% include 'massage_head.html' %}
 <section class="information">
-    <p style="color:#FF8F1C;font-size:20px;">Success！</p>
+    <p style="color:#FF8F1C;font-size:20px;">Congratulations! You have seckilling a 15 minutes massage reservation ticket！</p>
     <div style="height: 17px;"></div>
-    <p>You choose time area <span style="font-weight: bold; color: #009CDE">{{colleague.timeArea }}</span> to enjoy the service!</p>
-    <p>Please come to {{ colleague.place }} 5 minutes early before that area.</p>
-    {% load staticfiles %}
-    <img src="{% static "images/massage.jpg" %}">
+    <p>Location：{{ colleague.place }}</p>
+    <p>Time：<span style="font-weight: bold; color: #009CDE">{{colleague.timeArea }}</span> </p>
+    <p>Please arrange your schedule and be there on time!</p>
 </section>
 </body>
 
